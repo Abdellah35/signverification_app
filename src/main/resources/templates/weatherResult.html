@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Current Weather</h1>
+	<div>
+    <p th:text="'Main: ' + ${weather.main}" />
+    </div>
+    <div>
+    <p th:text="'Description: ' + ${weather.description}" />
+    </div>
+    <div>
+    <p th:text="'Temperature: ' + ${weather.temp} + '~C'" />
+    </div>
+    <div>
+    <p th:text="'Humidity: ' + ${weather.humidity}" />
+    </div>
+    <div>
+    <p th:text="'Country Code: ' + ${weather.country}" />
+    </div>
+    <div>
+    <p th:text="'City: ' + ${weather.city}" />
+    </div>
+    <div>
+    <p th:text="'Longitude: ' + ${weather.lon}" />
+    </div>
+    <hr>
+    <a href="/">Back To Home</a>
+</body>
+</html>

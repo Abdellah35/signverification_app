@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Weather History</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+</head>
+<body>
+	<h1>Weather History</h1>
+	<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Account Number</th>
+      <th scope="col">Full Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="account: ${accounts}" scope="row">
+    <td th:text="${account.id}" />
+    <td th:text="${account.accountId}" />
+    <td th:text="${account.name}" />
+	</tr>
+  </tbody>
+</table>
+    <a href="/">Back To Home</a>
+</body>
+</html>
