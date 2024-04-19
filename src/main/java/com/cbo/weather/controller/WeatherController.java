@@ -1,5 +1,6 @@
 package com.cbo.weather.controller;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -83,7 +84,7 @@ public class WeatherController {
 		BufferedReader inputs = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
 		StringBuffer response = new StringBuffer();
-		while ((inputLine = inputs.readLine()) != null) {
+		while ((inputLine = BoundedLineReader.readLine(inputs, 5_000_000)) != null) {
 			response.append(inputLine);
 				}
 
