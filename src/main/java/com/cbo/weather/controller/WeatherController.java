@@ -1,6 +1,8 @@
 package com.cbo.weather.controller;
 
 import io.github.pixee.security.BoundedLineReader;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -78,7 +80,7 @@ public class WeatherController {
 		
 		String inputLine;	
             	String url = "http://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="+key; 
-            	URL urlobj = new URL(url);
+            	URL urlobj = Urls.create(url, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
 		HttpURLConnection connection = (HttpURLConnection) urlobj.openConnection();
 		responseCode = connection.getResponseCode();
 		BufferedReader inputs = new BufferedReader(new InputStreamReader(connection.getInputStream()));
